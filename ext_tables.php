@@ -3,7 +3,6 @@
 defined('TYPO3_MODE') || die;
 
 if (TYPO3_MODE === 'BE') {
-
     if (!isset($GLOBALS['TBE_MODULES']['remind'])) {
         $GLOBALS['TBE_MODULES']['remind'] = '';
     }
