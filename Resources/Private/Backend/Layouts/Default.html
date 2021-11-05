@@ -1,0 +1,9 @@
+<f:flashMessages as="flashMessages">
+    <div class="flashMessages">
+        <f:for each="{flashMessages}" as="flashMessage">
+            <div class="flashMessage">{flashMessage.message}</div>
+        </f:for>
+    </div>
+</f:flashMessages>
+<f:render section="headline"/>
+<f:render section="content"/>

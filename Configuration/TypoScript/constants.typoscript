@@ -1,0 +1,16 @@
+module.tx_rmndbasemodules {
+
+    view {
+        # cat=module.tx_rmndbasemodules/file; type=string; label=Path to template root (BE)
+        templateRootPath = EXT:rmnd_basemodules/Resources/Private/Backend/Templates/
+        # cat=module.tx_rmndbasemodules/file; type=string; label=Path to template partials (BE)
+        partialRootPath = EXT:rmnd_basemodules/Resources/Private/Backend/Partials/
+        # cat=module.tx_rmndbasemodules/file; type=string; label=Path to template layouts (BE)
+        layoutRootPath = EXT:rmnd_basemodules/Resources/Private/Backend/Layouts/
+    }
+
+    persistence {
+        # cat=module.tx_rmndbasemodules//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}

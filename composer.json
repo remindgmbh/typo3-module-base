@@ -1,0 +1,73 @@
+{
+    "name": "remind/typo3-module-base",
+    "description": "TYPO3 module defintion to act as the top menu for all other REMIND modules.",
+    "type": "typo3-cms-extension",
+    "keywords": ["TYPO3", "REMIND", "backend"],
+    "license": ["GPL-3.0-or-later"],
+    "authors": [
+        {
+            "name": "REMIND GmbH",
+            "email": "technik@remind.de"
+        },
+        {
+            "name": "Marco Wegner",
+            "email": "m.wegner@remind.de"
+        },
+        {
+            "name": "Hauke Schulz",
+            "email": "h.schulz@remind.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Remind\\RmndBasemodules\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Remind\\RmndBasemodules\\Tests\\": "Tests"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "apcu-autoloader": true,
+        "vendor-dir": ".build/vendor",
+        "bin-dir": ".build/bin",
+        "sort-packages": true
+    },
+    "require": {
+        "php": "^7.4.0",
+        "typo3/cms-core": "^10.4.0"
+    },
+    "require-dev": {
+        "phpmd/phpmd": "^2.10.2",
+        "remind/confluence-changelog": "^0.2.0",
+        "sebastian/phpcpd": "^6.0.3",
+        "squizlabs/php_codesniffer": "^3.6.0",
+        "typo3/testing-framework": "^6.9.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "typo3/cms": {
+            "cms-package-dir": "{$vendor-dir}/typo3/cms",
+            "app-dir": ".build",
+            "web-dir": ".build/web",
+            "extension-key": "rmnd_basemodules"
+        }
+    },
+    "scripts": {
+        "pmd": "@php ./.build/vendor/phpmd/phpmd/src/bin/phpmd ./Classes xml ./.build/phpmd.xml --reportfile ./.build/logs/pmd.xml --ignore-violations-on-exit",
+        "phpcpd": "@php ./.build/vendor/sebastian/phpcpd/phpcpd --log-pmd ./.build/logs/pmd-cpd.xml ./Classes ./Configuration/TCA ./Tests ./ext_emconf.php ./ext_tables.php",
+        "test": "@php ./.build/vendor/phpunit/phpunit/phpunit --configuration ./.build/vendor/typo3/testing-framework/Resources/Core/Build/UnitTests.xml --testdox --log-junit ./.build/logs/unitreport.xml --whitelist ./Classes ./Tests/Unit",
+        "conflog": "@php ./.build/vendor/remind/confluence-changelog/bin/conflog conflog:document --spaceKey REBASEMOD",
+        "phpcs": "@php ./.build/vendor/squizlabs/php_codesniffer/bin/phpcs --report=full --standard=PSR12 --extensions=php ./Classes ./Tests ./Configuration/TCA",
+        "phpcbf": "@php .build/vendor/squizlabs/php_codesniffer/bin/phpcbf --standard=PSR12 ./Classes ./Tests ./Configuration/TCA",
+        "static-analysis": [
+            "@pmd",
+            "@phpcpd",
+            "@phpcs",
+            "@test"
+        ]
+    }
+}

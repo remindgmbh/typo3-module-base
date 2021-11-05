@@ -1,0 +1,167 @@
+{namespace core = TYPO3\CMS\Core\ViewHelpers}
+
+<f:layout name="Default"/>
+
+<f:section name="headline">
+<h1>REMIND GmbH</h1>
+</f:section>
+
+<f:section name="content">
+<div class="card-container">
+    <f:render
+        section="content-card"
+        arguments="{
+            title: 'Über uns',
+            subtitle: 'Webseite',
+            text: 'Remind ist die Agentur für Digitales im Herzen der Metropole Ruhr. Seit 1996.',
+            icon: 'logo-remind.svg',
+            link: {
+                url: 'https://www.remind.de/',
+                alt: 'Link zur REMIND GmbH Webseite',
+                title: 'Die REMIND GmbH Webseite',
+                text: 'Webseite besuchen',
+                class: 'primary'
+            }
+        }"/>
+    <f:render
+        section="content-card"
+        arguments="{
+            title: 'Kontakt',
+            subtitle: 'E-Mail',
+            text: 'Sie planen ein spannendes, digitales Projekt? Wir können es kaum erwarten...',
+            icon: 'logo-remind.svg',
+            link: {
+                url: 'mailto:info@remind.de',
+                alt: 'REMIND GmbH E-Mail-Adresse',
+                title: 'Senden Sie der REMIND GmbH eine E-Mail',
+                text: 'E-Mail senden',
+                class: 'default'
+            }
+        }"/>
+    <f:render
+        section="content-card"
+        arguments="{
+            title: 'Github',
+            subtitle: 'Entwicklung',
+            text: 'Unsere Open Source Projekte.',
+            icon: 'logo-github.svg',
+            link: {
+                url: 'https://www.github.com/remindgmbh',
+                alt: 'Link zur Github-Seite der REMIND GmbH',
+                title: 'Die REMIND GmbH auf Github',
+                text: 'Folge uns auf Github',
+                class: 'warning'
+            }
+        }"/>
+    <f:render
+        section="content-card"
+        arguments="{
+            title: 'PHP Packagist',
+            subtitle: 'Entwicklung',
+            text: 'Hier finden Sie unsere Composer-Pakete.',
+            icon: 'logo-packagist.svg',
+            link: {
+                url: 'https://packagist.org/users/remindgmbh/packages/',
+                alt: 'Die Pakete der REMIND GmbH auf Packagist',
+                title: 'Die REMIND GmbH auf Packagist',
+                text: 'Pakete ansehen',
+                class: 'warning'
+            }
+        }"/>
+    <f:render
+        section="content-card"
+        arguments="{
+            title: 'Npmjs Module',
+            subtitle: 'Entwicklung',
+            text: 'Hier finden Sie unsere Nodejs Pakete.',
+            icon: 'logo-npmjs.svg',
+            link: {
+                url: 'https://www.npmjs.com/~remindtech',
+                alt: 'Link zum REMIND GmbH Npmjs Profil',
+                title: 'Die REMIND GmbH auf Npmjs',
+                text: 'Module ansehen',
+                class: 'warning'
+            }
+        }"/>
+    <f:render
+        section="content-card"
+        arguments="{
+            title: 'Twitter',
+            subtitle: 'Social',
+            text: 'Follow us on twitter to get the latest news.',
+            icon: 'logo-twitter.svg',
+            link: {
+                url: 'https://twitter.com/remind_de',
+                alt: 'Link to REMIND GmbH Twitter page',
+                title: 'REMIND GmbH on Twitter',
+                text: 'Twittern',
+                class: 'default'
+            }
+        }"/>
+    <f:render
+        section="content-card"
+        arguments="{
+            title: 'Xing',
+            subtitle: 'Social',
+            text: 'Kontaktieren Sie uns über Xing.',
+            icon: 'logo-xing.svg',
+            link: {
+                url: 'https://www.xing.com/pages/remindgmbh',
+                alt: 'Link zur Seite der REMIND GmbH auf Xing',
+                title: 'Die REMIND GmbH auf Xing',
+                text: 'Öffnen',
+                class: 'default'
+            }
+        }"/>
+    <f:render
+        section="content-card"
+        arguments="{
+            title: 'Facebook',
+            subtitle: 'Social',
+            text: 'Besuchen Sie uns auf Facebook.',
+            icon: 'logo-facebook.svg',
+            link: {
+                url: 'https://www.facebook.com/Remind.GmbH/',
+                alt: 'Link zur REMIND GmbH auf Facebook',
+                title: 'Die REMIND GmbH auf Facebook',
+                text: 'Besuchen',
+                class: 'default'
+            }
+        }"/>
+    <f:render
+        section="content-card"
+        arguments="{
+            title: 'LinkedIn',
+            subtitle: 'Social',
+            text: 'Unser Profil auf LinkedIn.',
+            icon: 'logo-linkedin.svg',
+            link: {
+                url: 'https://de.linkedin.com/company/remind-gmbh',
+                alt: 'Link zur REMIND GmbH auf LinkedIn',
+                title: 'Die REMIND GmbH auf LinkedIn',
+                text: 'Verbinden',
+                class: 'default'
+            }
+        }"/>
+</div>
+</f:section>
+
+<f:section name="content-card">
+<div class="card card-size-fixed-small">
+    <div class="card-header">
+        <div class="card-icon">
+            <f:image src="EXT:rmnd_basemodules/Resources/Public/Icons/{icon}" class="card-header-logo-image" width="64" height="64"/>
+        </div>
+        <div class="card-header-body">
+            <h1 class="card-title">{title}</h1>
+            <span class="card-subtitle">{subtitle}</span>
+        </div>
+    </div>
+    <div class="card-content">
+        <p class="card-text">{text}</p>
+    </div>
+    <div class="card-footer">
+        <a href="{link.url}" alt="{link.alt}" title="{link.title}" class="btn btn-{link.class}" target="_blank">{link.text}</a>
+    </div>
+</div>
+</f:section>

@@ -1,0 +1,24 @@
+ # Module configuration
+module.tx_rmndbasemodules {
+
+    persistence {
+        storagePid = {$module.tx_rmndbasemodules.persistence.storagePid}
+    }
+
+    view {
+        templateRootPaths {
+            0 = EXT:rmnd_basemodules/Resources/Private/Backend/Templates/
+            1 = {$module.tx_rmndbasemodules.view.templateRootPath}
+        }
+
+        partialRootPaths {
+            0 = EXT:rmnd_basemodules/Resources/Private/Backend/Partials/
+            1 = {$module.tx_rmndbasemodules.view.partialRootPath}
+        }
+
+        layoutRootPaths {
+            0 = EXT:rmnd_basemodules/Resources/Private/Backend/Layouts/
+            1 = {$module.tx_rmndbasemodules.view.layoutRootPath}
+        }
+    }
+}
