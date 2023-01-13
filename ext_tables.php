@@ -13,7 +13,7 @@ if (TYPO3_MODE === 'BE') {
      * Creates the REMIND top level entry.
      */
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-        'Remind.rmnd_basemodules',
+        'rmnd_basemodules',
         'remind',
         '',
         'bottom',
@@ -39,12 +39,12 @@ if (TYPO3_MODE === 'BE') {
      * Creates the Information module inside the REMIND top level module.
      */
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-        'Remind.rmnd_basemodules',
+        'rmnd_basemodules',
         'remind',    // Make module a submodule of 'remind'
         'overview',  // Submodule key
         '',          // Position
         [
-            'Main' => 'overview'
+            \Remind\RmndBasemodules\Controller\MainController::class => 'overview'
         ],
         [
             'access' => 'user,group',
