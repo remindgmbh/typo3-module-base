@@ -2,21 +2,18 @@
 
 defined('TYPO3_MODE') || die;
 
+use Remind\RmndBasemodules\Controller\MainController;
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
 if (TYPO3_MODE === 'BE') {
-    if (!isset($GLOBALS['TBE_MODULES']['remind'])) {
-        $GLOBALS['TBE_MODULES']['remind'] = '';
-    }
-
-    $tbeModulesRemindTemp = $GLOBALS['TBE_MODULES']['remind'];
-
     /**
      * Creates the REMIND top level entry.
      */
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
+    ExtensionUtility::registerModule(
         'rmnd_basemodules',
         'remind',
         '',
-        'bottom',
+        'after:web',
         [],
         [
             'access' => 'user,group',
@@ -25,26 +22,16 @@ if (TYPO3_MODE === 'BE') {
         ]
     );
 
-    $orderedModules = [
-        'web' => $GLOBALS['TBE_MODULES']['web'],
-        'remind' => $GLOBALS['TBE_MODULES']['remind'] . ',' . $tbeModulesRemindTemp,
-    ];
-
-    $oldModuleTemp = $GLOBALS['TBE_MODULES'];
-    unset($oldModuleTemp['web']);
-
-    $GLOBALS['TBE_MODULES'] = $orderedModules + $oldModuleTemp;
-
     /**
      * Creates the Information module inside the REMIND top level module.
      */
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
+    ExtensionUtility::registerModule(
         'rmnd_basemodules',
         'remind',    // Make module a submodule of 'remind'
         'overview',  // Submodule key
         '',          // Position
         [
-            \Remind\RmndBasemodules\Controller\MainController::class => 'overview'
+            MainController::class => 'overview'
         ],
         [
             'access' => 'user,group',

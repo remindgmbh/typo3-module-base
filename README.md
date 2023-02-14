@@ -17,3 +17,7 @@ TYPO3 module defintion to act as the top menu for all other REMIND modules.
 [![github-issues-img]](https://github.com/remindgmbh/typo3-module-base/issues)
 [![contrib-welcome-img]](https://github.com/remindgmbh/typo3-module-base/blob/master/CONTRIBUTING.md)
 [![license-img]](https://github.com/remindgmbh/typo3-module-base/blob/master/LICENSE)
+
+## Usage
+
+Use `TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule` with `RmndBasemodulesRemind` as `$mainModuleName` to add a sub module.
