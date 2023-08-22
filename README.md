@@ -20,4 +20,8 @@ TYPO3 module defintion to act as the top menu for all other REMIND modules.
 
 ## Usage
 
-Use `TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule` with `RmndBasemodulesRemind` as `$mainModuleName` to add a sub module.
+Use `TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule` with `remind` as `$mainModuleName` to add a sub module.
+
+Do not use position `top` for submodules because it´s reserved for the remind info module, which is part of this extension.
+
+If several modules are declared at the same position, the last one wins. We recommended to use  `bottom `,  `after:` or  `before:`.
