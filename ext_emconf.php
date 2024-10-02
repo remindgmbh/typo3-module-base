@@ -1,6 +1,6 @@
 <?php
 
-$EM_CONF[$_EXTKEY] =[
+$EM_CONF[$_EXTKEY] = [
     'title' => 'REMIND - TYPO3 Base Module Definition ',
     'description' => '´Module defintion to act as the top module for all REMIND modules.',
     'category' => 'misc',
